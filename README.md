@@ -19,5 +19,17 @@ make install-prometheus
 make run
 ```
 
--- belum selesai 
+![app-go](docs/app-go.png)
 
+
+### 3. Melihat /metrics di applikasi
+
+
+![metric](docs/metrics.png)
+
+![myapp](docs/myapp.png)
+
+
+### 4. result aplikasi  
+
+![result](docs/grafana.png)
