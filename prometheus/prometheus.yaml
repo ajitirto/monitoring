@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus-go'
+    scrape_interval: 5s
+    static_configs:
+      # host.docker.internal for MacOS and Windows Docker Desktop
+      # Use host IP address for Linux
+      - targets: ['192.168.18.213:8080']
