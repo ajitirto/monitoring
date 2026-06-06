@@ -11,19 +11,19 @@ export let options = {
 
 export default function () {
     // success
-    let res2 = http.get('http://192.168.18.213:8080/get-user');
+    let res2 = http.get('http://host.docker.internal:8080/get-user');
     check(res2, {
         'status is 200': (r) => r.status === 200,
         'response is Success Get Users': (r) => r.body === 'Success Get Users',
     });
 
-    let res3 = http.get('http://192.168.18.213:8080/get-role');
+    let res3 = http.get('http://host.docker.internal:8080/get-role');
     check(res3, {
         'status is 200': (r) => r.status === 200,
         'response is Success Get Roles': (r) => r.body === 'Success Get Roles',
     });
 
-    let res4 = http.get('http://192.168.18.213:8080/get-level');
+    let res4 = http.get('http://host.docker.internal:8080/get-level');
     check(res4, {
         'status is 200': (r) => r.status === 200,
         'response is Success Get Levels': (r) => r.body === 'Success Get Levels',
@@ -31,25 +31,25 @@ export default function () {
 
 
     // error
-    let res5 = http.get('http://192.168.18.213:8080/get-user?param=error');
+    let res5 = http.get('http://host.docker.internal:8080/get-user?param=error');
     check(res5, {
         'status is 500': (r) => r.status === 500,
         'response contains Internal Server Error': (r) => r.body.includes('Internal Server Error'),
     });
 
-    let res6 = http.get('http://192.168.18.213:8080/get-user?param=not-found');
+    let res6 = http.get('http://host.docker.internal:8080/get-user?param=not-found');
     check(res6, {
         'status is 500': (r) => r.status === 500,
         'response contains Not Found': (r) => r.body.includes('Not Found'),
     });
 
-    let res7 = http.get('http://192.168.18.213:8080/get-role?param=error');
+    let res7 = http.get('http://host.docker.internal:8080/get-role?param=error');
     check(res7, {
         'status is 500': (r) => r.status === 500,
         'response contains Internal Server Error': (r) => r.body.includes('Internal Server Error'),
     });
 
-    let res8 = http.get('http://192.168.18.213:8080/get-role?param=not-found');
+    let res8 = http.get('http://host.docker.internal:8080/get-role?param=not-found');
     check(res8, {
         'status is 500': (r) => r.status === 500,
         'response contains Not Found': (r) => r.body.includes('Not Found'),
