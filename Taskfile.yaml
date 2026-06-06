@@ -1,0 +1,29 @@
+version: '3'
+
+tasks:
+  run:
+    desc: Menjalankan aplikasi Go
+    cmds:
+      - go run main.go
+
+  install-prometheus:
+    desc: Menjalankan Prometheus menggunakan Docker Compose
+    cmds:
+      - docker-compose -f docker-compose.yml up -d
+
+  run-k6:
+    desc: Menjalankan k6 load testing di dalam direktorinya
+    dir: k6
+    cmds:
+      - docker compose up -d
+
+  down-prometheus:
+    desc: Menghentikan layanan Prometheus
+    cmds:
+      - docker-compose -f docker-compose.yml down
+
+  down-k6:
+    desc: Menghentikan layanan k6 di dalam direktorinya
+    dir: k6
+    cmds:
+      - docker-compose -f docker-compose.yml down
