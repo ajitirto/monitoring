@@ -1,4 +1,3 @@
-
 services:
   k6:
     image: grafana/k6:latest
@@ -7,10 +6,13 @@ services:
       - .:/scripts
     entrypoint: ["k6", "run", "/scripts/api_test.js"]
     networks:
-      - monitoring_monitoring
+      - monitoring
     environment:
-      - PROMETHEUS_URL=http://prometheus:9090  # Adjust to match your Prometheus service URL
+      - PROMETHEUS_URL=http://prometheus:9090
+    # Tambahkan ini di bawah servis k6:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 networks:
-  monitoring_monitoring:
-    external: true  # Use the existing external network
+  monitoring:
+    external: true
