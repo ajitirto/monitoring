@@ -17,19 +17,7 @@ make install-prometheus
 
 ```bash
 make run
-```
-
-![app-go](docs/app-go.png)
-
-
-### 3. Melihat /metrics di applikasi
-
-
-![metric](docs/metrics.png)
-
-![myapp](docs/myapp.png)
-
+``` 
 
 ### 4. result aplikasi  
-
-![result](docs/grafana.png)
+![evidence](./docs/evidence-monitoring.png)
